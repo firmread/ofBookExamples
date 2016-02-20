@@ -1,6 +1,4 @@
-#ifndef SPRING_H
-#define SPRING_H
-
+#pragma once
 #include "ofMain.h"
 #include "particle.h"
 
@@ -16,5 +14,3 @@ class spring {
 		void update();
 		void draw();
 };
-
-#endif

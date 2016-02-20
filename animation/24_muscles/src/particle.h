@@ -1,5 +1,4 @@
-#ifndef PARTICLE_H
-#define PARTICLE_H
+#pragma once
 
 #include "ofMain.h"
 
@@ -31,5 +30,3 @@ class particle{
     protected:
     private:
 };
-
-#endif // PARTICLE_H

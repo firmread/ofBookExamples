@@ -1,6 +1,4 @@
-#ifndef _TEST_APP
-#define _TEST_APP
-
+#pragma once
 #include "ofMain.h"
 #include "particle.h"
 
@@ -15,5 +13,3 @@ class ofApp : public ofBaseApp{
 		// let's make a vector of them
 		vector <particle> particles;
 };
-
-#endif

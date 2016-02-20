@@ -1,6 +1,4 @@
-#ifndef SPRING_H
-#define SPRING_H
-
+#pragma once
 #include "ofMain.h"
 #include "particle.h"
 
@@ -9,13 +7,11 @@ class spring {
 
         spring();
 
-	particle * particleA;
-	particle * particleB;
-	float distance;
-	float springiness;	 // this is the k, springiness constant
+        particle * particleA;
+        particle * particleB;
+        float distance;
+        float springiness;	 // this is the k, springiness constant
 
-	void update();
-	void draw();
+        void update();
+        void draw();
 };
-
-#endif

@@ -1,7 +1,4 @@
 #include "particle.h"
-#include "ofMain.h"
-
-
 //------------------------------------------------------------
 particle::particle(){
 	setInitialCondition(0,0,0,0);

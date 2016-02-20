@@ -59,7 +59,7 @@ void ofApp::draw(){
 	                      "\n(r) toggle mode = " + (bRepel ? "repelling" : "attracting");
 
 	ofSetColor(40,40,0);
-	ofRect(10,10,300,80);
+	ofDrawRectangle(10,10,300,80);
 	ofSetColor(255,255,255);
 	ofDrawBitmapString(reportString, 30, 30);
 }

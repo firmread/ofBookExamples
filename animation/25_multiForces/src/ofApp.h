@@ -1,6 +1,4 @@
-#ifndef _TEST_APP
-#define _TEST_APP
-
+#pragma once
 #include "ofMain.h"
 #include "particle.h"
 #include "spring.h"
@@ -17,5 +15,3 @@ class ofApp : public ofBaseApp{
         vector <particle> particles;
         vector <spring> springs;
 };
-
-#endif	

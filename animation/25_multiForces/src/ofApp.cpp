@@ -19,7 +19,7 @@ void ofApp::setup(){
         spring mySpring;
 	mySpring.distance = 100;
 	mySpring.springiness = 0.2f;
-	mySpring.particleA = & (particles[0  ]);
+	mySpring.particleA = & (particles[0]);
 	mySpring.particleB = & (particles[i]);
 	springs.push_back(mySpring);
     }

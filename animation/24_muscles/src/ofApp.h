@@ -1,12 +1,10 @@
-#ifndef _TEST_APP
-#define _TEST_APP
+#pragma once
 
 #include "ofMain.h"
 #include "particle.h"
 #include "spring.h"
 
 class ofApp : public ofBaseApp{
-	using ofBaseApp::mouseReleased;
 	public:
 		// let's make a vector of them
 		vector <particle> particles;
@@ -20,5 +18,3 @@ class ofApp : public ofBaseApp{
 		void mousePressed(int x, int y, int button);
 		void mouseReleased();
 };
-
-#endif	
