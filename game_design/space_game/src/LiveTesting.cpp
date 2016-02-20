@@ -9,7 +9,7 @@
 #include "LiveTesting.h"
 
 LiveTesting::LiveTesting(){
-    sender.setup("192.168.0.11", 8000);
+    sender.setup("192.168.0.103", 8000);
     //this is the ip address of your ipad/android and the port it should be
     //set to receive on
     
@@ -29,7 +29,7 @@ void LiveTesting::update()
         
         //get the next message
         ofxOscMessage m;
-        receiver.getNextMessage(&m);
+        receiver.getNextMessage(m);
         //parse the message 
        
         ofxOscMessage sendBack;
