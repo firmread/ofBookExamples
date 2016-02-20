@@ -48,7 +48,7 @@ void ofApp::draw(){
             ofVec3f point = polyline.getPointAtPercent(p/500.0);
             float floatIndex = p/500.0 * (numPoints-1);
             ofVec3f tangent = polyline.getTangentAtIndexInterpolated(floatIndex) * tangentLength;
-            ofLine(point-tangent/2, point+tangent/2);
+            ofDrawLine(point-tangent/2, point+tangent/2);
         }
     }
 
@@ -69,21 +69,6 @@ void ofApp::keyPressed(int key){
         // isSavingPDF is a flag that lets us know whether or not save a PDF
         isSavingPDF = true;
     }
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
 }
 
 //--------------------------------------------------------------
@@ -111,19 +96,4 @@ void ofApp::mouseReleased(int x, int y, int button){
         polylines.push_back(currentPolyline);
         currentPolyline.clear();  // Erase the vertices, allows us to start a new brush stroke
     }
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-
 }
