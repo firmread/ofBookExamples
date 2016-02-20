@@ -17,9 +17,9 @@ void rectangle::draw() {
 
 	ofPushMatrix();
 		ofTranslate(pos.x, pos.y, 0);
-		ofRotateZ(angle * RAD_TO_DEG);
-		ofRect( 0,0, 20,20);
-		ofRect(15,0,3,3);
+		ofRotate(angle * RAD_TO_DEG);
+		ofDrawRectangle( 0,0, 20,20);
+		ofDrawRectangle(15,0,3,3);
 	ofPopMatrix();
 }
 

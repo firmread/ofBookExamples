@@ -1,6 +1,4 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-
+#pragma once
 #include "ofMain.h"
 
 class rectangle {
@@ -17,5 +15,3 @@ class rectangle {
 		float		angle;
 		float		catchUpSpeed;		// take this pct of where I want to be, and 1-catchUpSpeed of my pos
 };
-
-#endif // RECTANGLE_H

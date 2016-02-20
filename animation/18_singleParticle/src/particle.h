@@ -1,6 +1,4 @@
-#ifndef PARTICLE_H
-#define PARTICLE_H
-
+#pragma once
 #include "ofMain.h"
 
 class particle{
@@ -22,4 +20,3 @@ class particle{
 		float damping;
 };
 
-#endif // PARTICLE_H
