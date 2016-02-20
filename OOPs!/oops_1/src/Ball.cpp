@@ -1,6 +1,7 @@
 #include "Ball.h"
 
 Ball::Ball(){
+    
 };
 
 void Ball::setup(){

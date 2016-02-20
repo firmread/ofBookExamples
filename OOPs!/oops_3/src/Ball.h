@@ -1,13 +1,11 @@
 //
 //  ofBall.h
-//  emptyExample
 //
 //  Created by rux on 3/31/14.
 //
 //
 
-#ifndef _BALL // if this class hasn't been defined, the program can define it
-#define _BALL // by using this if statement you prevent the class to be called more than once which would confuse the compiler
+#pragma once // by using this if statement you prevent the class to be called more than once which would confuse the compiler
 #include "ofMain.h"
 
 class Ball {
@@ -32,4 +30,3 @@ class Ball {
     private: // place private functions or variables declarations here
 
 }; // don't forget the semicolon!!
-#endif
