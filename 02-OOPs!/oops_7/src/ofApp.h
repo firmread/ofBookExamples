@@ -13,6 +13,6 @@ class ofApp : public ofBaseApp{
 		void draw();
 
     
-    vector<Ball>balls;
+        vector<Ball>balls;
     
 };

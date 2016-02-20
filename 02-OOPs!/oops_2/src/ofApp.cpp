@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofSetCircleResolution(100);
+    
     myBall1.setup();
     myBall2.setup();
     myBall3.setup();

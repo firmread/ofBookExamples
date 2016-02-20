@@ -4,6 +4,7 @@
 void ofApp::setup(){
 
     ofBackground(0); // let's make our background black
+    ofSetCircleResolution(100);
     
     int xCenter = ofGetWidth()*.5;
     int yCenter = ofGetHeight()*.5;

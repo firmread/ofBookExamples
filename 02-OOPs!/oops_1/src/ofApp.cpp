@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
+    ofSetCircleResolution(100);
     myBall.setup();
 
 }

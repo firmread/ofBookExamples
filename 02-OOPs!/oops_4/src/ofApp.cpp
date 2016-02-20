@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofSetCircleResolution(100);
+    
     for(int i=0; i<NBALLS; i++){
         
         int size = (i+1) * 10; // defining the size of each ball based o its place in the array

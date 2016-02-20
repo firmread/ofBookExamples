@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofSetCircleResolution(100);
+    
     for (int i=0; i <NBALLS; i++) {
         myBall[i].setup();
     }
