@@ -1,6 +1,4 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-
+#pragma once
 #include "ofMain.h"
 
 class rectangle {
@@ -9,11 +7,10 @@ class rectangle {
 
         rectangle();
 
-		void	draw();
-		void	zenoToPoint(float catchX, float catchY);
+		void draw();
+		void zenoToPoint(float catchX, float catchY);
 
-		ofPoint		pos;
-		float		catchUpSpeed;		// take this pct of where I want to be, and 1-catchUpSpeed of my pos
+		ofPoint	pos;
+		float catchUpSpeed;		// take this pct of where I want to be, and 1-catchUpSpeed of my pos
+    
 };
-
-#endif // RECTANGLE_H

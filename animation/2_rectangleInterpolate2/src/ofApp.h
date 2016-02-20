@@ -1,13 +1,9 @@
-#ifndef _TEST_APP
-#define _TEST_APP
-
+#pragma once
 #include "ofMain.h"
 #include "rectangle.h"
 
-class ofApp : public ofSimpleApp{
-
+class ofApp : public ofBaseApp{
 	public:
-
 		void setup();
 		void update();
 		void draw();
@@ -15,6 +11,3 @@ class ofApp : public ofSimpleApp{
 		rectangle myRectangle;
 		float pct;
 };
-
-#endif
-

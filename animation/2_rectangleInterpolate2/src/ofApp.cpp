@@ -1,6 +1,4 @@
 #include "ofApp.h"
-#include "ofMain.h"
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	// macs by default run on non vertical sync, which can make animation very, very fast

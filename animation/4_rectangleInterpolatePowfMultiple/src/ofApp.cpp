@@ -1,7 +1,4 @@
 #include "ofApp.h"
-#include "ofMain.h"
-
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	// macs by default run on non vertical sync, which can make animation very, very fast
@@ -9,7 +6,7 @@ void ofApp::setup(){
 	ofSetVerticalSync(true);
 
 	// set background: 
-       	ofBackground(30,30,30);
+    ofBackground(30,30,30);
 	
 	// now we are using multiple rectangles....
 	// set the "a" and "b" positions of the
@@ -39,12 +36,14 @@ void ofApp::update(){
 void ofApp::draw(){
 	for (int i = 0; i < 10; i++){
 		ofSetColor(198,246,55);
-		if (i == 3) ofSetColor(255,0,0);
-		myRectangles[i].draw();
+        if (i == 3) {
+            ofSetColor(255,0,0);
+        }
+        myRectangles[i].draw();
 	}
 
 	ofSetColor(255,255,255);
 	for (int i = 0; i < 10; i++){
-		ofLine(0,i*20, ofGetWidth(), i*20);
+		ofDrawLine(0,i*20, ofGetWidth(), i*20);
 	}	
 }

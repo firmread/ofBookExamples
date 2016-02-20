@@ -1,6 +1,4 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-
+#pragma once
 #include "ofMain.h"
 
 class rectangle {
@@ -18,5 +16,3 @@ class rectangle {
 		float		pct;	// what pct are we between "a" and "b"
 		float		shaper;
 };
-
-#endif // RECTANGLE_H

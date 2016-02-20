@@ -1,19 +1,16 @@
 #include "rectangle.h"
-
-
 //------------------------------------------------------------------
-rectangle::rectangle(){  
+rectangle::rectangle(){
+    
 }
-
 
 //------------------------------------------------------------------
 void rectangle::draw() {
 	ofFill();
 	ofSetRectMode(OF_RECTMODE_CENTER); // center around the position
 	ofSetColor(198,246,55);
-	ofCircle(pos.x, pos.y, radius);
+	ofDrawCircle(pos.x, pos.y, radius);
 }
-
 
 //------------------------------------------------------------------
 void rectangle::interpolateByPct(float myPct){
@@ -23,4 +20,5 @@ void rectangle::interpolateByPct(float myPct){
 	pos.y = (1-pct) * posa.y + (pct) * posb.y;
 
 	radius = (1-pct) * radiusa + (pct) * radiusb;
+    
 }

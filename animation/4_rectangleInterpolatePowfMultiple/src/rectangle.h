@@ -1,6 +1,4 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-
+#pragma once
 #include "ofMain.h"
 
 class rectangle {
@@ -12,11 +10,9 @@ class rectangle {
 		void draw();
 		void interpolateByPct(float myPct);
 
-		ofPoint		pos;
-		ofPoint		posa;
-		ofPoint		posb;
-		float		pct;	// what pct are we between "a" and "b"
-		float		shaper;
+		ofPoint	pos;
+		ofPoint	posa;
+		ofPoint	posb;
+		float pct;	// what pct are we between "a" and "b"
+		float shaper;
 };
-
-#endif // RECTANGLE_H

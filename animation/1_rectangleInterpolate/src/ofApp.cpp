@@ -1,6 +1,4 @@
 #include "ofApp.h"
-#include "ofMain.h"
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	// macs by default run on non vertical sync, which can make animation very, very fast
@@ -22,7 +20,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	// to see pct in the console
-	//printf("%f \n", pct);
+	//ofLog() << pct;
 
 	pct += 0.01f;				// increase by a certain amount
 	if(pct > 1) {
