@@ -64,27 +64,24 @@ void ofApp::setup(){
     maxValue = ceil(maxValue / 10) * 10;
     
     
-    dimensions.x = 150;
-    dimensions.y = 150;
-    dimensions.width = 700;
-    dimensions.height = 400;
-    
-    
-    ofBackground(180,180,180);
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    
+    dimensions.x = ofGetWidth()/10;
+    dimensions.y = ofGetHeight()/10;
+    dimensions.width = ofGetWidth()*8/10;
+    dimensions.height = ofGetHeight()*8/10;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofSetColor(255,255,255);
+    ofBackgroundGradient(255, 80);
+    
+    ofSetColor(255,150);
     ofDrawRectangle(dimensions.x, dimensions.y, dimensions.width, dimensions.height);
     
-    ofSetColor(90,90,90);
     for (int i = 0; i < dataPoints.size(); i++){
         
         float value;
@@ -96,19 +93,23 @@ void ofApp::draw(){
         float y = dimensions.y + ofMap( value, 0, maxValue, dimensions.height, 0);
         
         
-        ofDrawCircle(x,y, 2);
+        ofSetColor(ofColor::green);
+        ofDrawCircle(x,y, 5);
+        
+        ofSetColor(255);
+        labelFont.drawString(ofToString(dataPoints[i].year), x, dimensions.y+dimensions.height+15);
     }
     
-    if (which == 0) ofSetColor(180,90,90);
-    else ofSetColor(90,90,90);
+    if (which == 0) ofSetColor(ofColor::salmon);
+    else ofSetColor(255);
     font.drawString("New York", dimensions.x, dimensions.y-15);
     
-    if (which == 1) ofSetColor(180,90,90);
-    else ofSetColor(90,90,90);
+    if (which == 1) ofSetColor(ofColor::salmon);
+    else ofSetColor(255);
     font.drawString("Alabama", dimensions.x + 160, dimensions.y-15);
     
-    if (which == 2) ofSetColor(180,90,90);
-    else ofSetColor(90,90,90);
+    if (which == 2) ofSetColor(ofColor::salmon);
+    else ofSetColor(255);
     font.drawString("Louisana", dimensions.x + 320, dimensions.y-15);
 
 }
