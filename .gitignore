@@ -10,7 +10,7 @@ Makefile
 *.plist
 *.xcconfig
 *.suo
-
+ 
 *.depend
 *.layout
 *.mode*v3
@@ -28,7 +28,6 @@ project.xcworkspace
 
 .svn/
 obj/
-bin/
 build/
 !data/
 
