@@ -38,7 +38,7 @@ void ofApp::draw(){
 //        vector<ofVec3f> vertices = polyline.getVertices();  // If you haven't seen a vector < >, before
 //        for (int p=0; p<100; p+=10) {
 //            ofVec3f point = polyline.getPointAtPercent(p/100.0);  // Returns a point at a percentage along the polyline
-//            ofCircle(point, 5);
+//            ofDrawCircle(point, 5);
 //        }
 
         // Drawing evenly spaced normals along the polyline
@@ -51,7 +51,7 @@ void ofApp::draw(){
 //            ofVec3f point = polyline.getPointAtPercent(p/100.0);
 //            float floatIndex = p/100.0 * (numPoints-1);
 //            ofVec3f normal = polyline.getNormalAtIndexInterpolated(floatIndex) * normalLength;
-//            ofLine(point-normal/2, point+normal/2);
+//            ofDrawLine(point-normal/2, point+normal/2);
 //        }
 
         // Drawing evenly spaced tangents along the polyline

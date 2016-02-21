@@ -76,7 +76,7 @@ void ofApp::draw(){
 //        p3 += mousePos;
 //
 //        ofSetColor(255, 50);
-//        ofTriangle(p1, p2, p3);
+//        ofDrawTriangle(p1, p2, p3);
     }
 
     // If the right mouse button is pressed...
