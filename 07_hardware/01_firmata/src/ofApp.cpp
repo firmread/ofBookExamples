@@ -20,7 +20,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    updateArduino();
+    myArduino.update();
 }
 //--------------------------------------------------------------
 void ofApp::draw(){
@@ -48,19 +48,5 @@ void ofApp::setupArduino(const int & version) {
     ofRemoveListener(myArduino.EInitialized, this, &ofApp::setupArduino);
     myArduino.sendDigitalPinMode(13, ARD_OUTPUT);
     bSetupArduino = true;
-}
-
-//--------------------------------------------------------------
-void ofApp::updateArduino(){
-    
-    // update the arduino, get any data or messages.
-    myArduino.update();
-    
-    // do not send anything until the arduino has been set up
-    if (bSetupArduino) {
-        myArduino.sendPwm(6, (int)(128 + 128 * sin(ofGetElapsedTimef())));   // pwm...
-        
-    }
-    
 }
 
