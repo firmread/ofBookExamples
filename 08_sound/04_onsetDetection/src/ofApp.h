@@ -13,4 +13,10 @@ class ofApp : public ofBaseApp{
         float vol;
         float smoothedVol;
         int bufferSize;
+    
+    float threshold;
+    float minimumThreshold;
+    float decayRate;
+    bool bOnSet;
+    int colorDelay;
 };

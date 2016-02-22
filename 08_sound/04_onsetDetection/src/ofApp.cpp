@@ -14,6 +14,10 @@ void ofApp::setup(){
     settings.bufferSize = bufferSize;
     ofSoundStreamSetup(settings);
     
+    decayRate = 0.05;
+    minimumThreshold = 0.1;
+    threshold = minimumThreshold;
+    
 }
 
 //--------------------------------------------------------------
@@ -23,6 +27,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    if (colorDelay > 0) colorDelay-=5;
+    if (bOnSet) colorDelay = 255;
+    
+    ofBackgroundGradient(colorDelay, 0);
     
     ofSetColor(245, 58, 135);
     ofPoint rawRmsPos(ofGetWidth()/3, ofGetHeight()/2);
@@ -57,4 +66,15 @@ void ofApp::audioIn(ofSoundBuffer & buffer){
     
     smoothedVol *= 0.93;
     smoothedVol += 0.07 * vol;
+    
+    
+    threshold = ofLerp(threshold, minimumThreshold, decayRate);
+    
+    if(rms > threshold) {
+        // onset detected!
+        threshold = rms;
+        bOnSet = true;
+    }else{
+        bOnSet = false;
+    }
 }
