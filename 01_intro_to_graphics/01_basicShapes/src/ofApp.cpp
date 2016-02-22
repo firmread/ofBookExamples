@@ -25,8 +25,8 @@ void ofApp::draw(){
 
     // If you are curious how to generate the series of lines shown in figure 2, you can use a for loop:
     //for (int i=0; i<11; i++) {
-	//	ofLine(650, 50+(i*10), 750, 75+(i*5));
-	//}
+    //  ofDrawLine(650, 50+(i*10), 750, 75+(i*5));
+    //}
 
     ofNoFill(); // If we omit this and leave ofFill(), all the shapes will be filled!
     ofSetLineWidth(4.5); // A higher value will render thicker lines
@@ -41,6 +41,6 @@ void ofApp::draw(){
 
     // Again, for generating the series of lines from figure 2:
     //for (int i=0; i<11; i++) {
-	//	ofLine(650, 200+(i*10), 750, 225+(i*5));
-	//}
+    //  ofDrawLine(650, 200+(i*10), 750, 225+(i*5));
+    //}
 }
