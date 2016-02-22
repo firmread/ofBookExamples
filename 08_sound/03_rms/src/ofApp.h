@@ -8,7 +8,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-        void audioOut(ofSoundBuffer &buffer);
-
-        double phase;
+        void audioIn(ofSoundBuffer &buffer);
+        
+        float vol;
+        int bufferSize;
 };

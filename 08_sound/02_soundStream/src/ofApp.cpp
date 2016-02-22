@@ -3,14 +3,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     phase = 0;
-//    ofSoundStreamSettings s;
-//    s.sampleRate = 44100;
-//    s.bufferSize = 256;
-//    s.numBuffers = 4;
-//    s.numInputChannels = 0;
-//    s.numOutputChannels = 2;
-//    ofSoundStreamSetup(s);
-    ofSoundStreamSetup(2, 0);
+    
+    ofSoundStreamSettings s;
+    s.setOutListener(this);
+    s.numOutputChannels = 2;
+    ofSoundStreamSetup(s);
 }
 
 //--------------------------------------------------------------
