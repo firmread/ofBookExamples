@@ -4,7 +4,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	// Create some polylines!
+    // Create some polylines!
     straightSegmentPolyline.addVertex(100, 100);  // Add a new point: (100, 100)
     straightSegmentPolyline.addVertex(150, 150);  // Add a new point: (150, 150)
     straightSegmentPolyline.addVertex(200, 100);  // etc...
@@ -33,6 +33,7 @@ void ofApp::draw(){
     ofBackground(0);
     ofSetLineWidth(2.0);  // Line widths apply to polylines
     ofSetColor(255,100,0);
+    
     straightSegmentPolyline.draw();  // This is how we draw polylines
     curvedSegmentPolyline.draw();  // Nice and easy, right?
     closedShapePolyline.draw();

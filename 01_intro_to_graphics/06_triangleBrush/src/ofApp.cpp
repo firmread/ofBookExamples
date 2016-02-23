@@ -3,7 +3,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetWindowShape(1024,768);
+    ofSetWindowShape(1024,768);
 
     ofSetFrameRate(60); // Limit the speed of our program to 60 frames per second
 
@@ -19,7 +19,6 @@ void ofApp::draw(){
     if (ofGetMousePressed(OF_MOUSE_BUTTON_LEFT)) {
 
         // Code for the final version of the brush
-
         int numTriangles = 10;
         int minOffset = 5;
         int maxOffset = 70;
@@ -29,7 +28,6 @@ void ofApp::draw(){
             float offsetDistance = ofRandom(minOffset, maxOffset);
 
             ofVec2f mousePos(ofGetMouseX(), ofGetMouseY());
-
             // Define a triangle at the origin (0,0) that points to the right
             ofVec2f p1(0, 6.25);
             ofVec2f p2(25, 0);
@@ -55,7 +53,7 @@ void ofApp::draw(){
             ofDrawTriangle(p1, p2, p3);
         }
 
-        // Alternate code, for the rotating triangle brush discussed in the chapter:
+// Alternate code, for the rotating triangle brush discussed in the chapter:
 
 //        ofVec2f mousePos(ofGetMouseX(), ofGetMouseY());
 //
@@ -77,7 +75,7 @@ void ofApp::draw(){
 //
 //        ofSetColor(255, 50);
 //        ofDrawTriangle(p1, p2, p3);
-    }
+}
 
     // If the right mouse button is pressed...
     if (ofGetMousePressed(OF_MOUSE_BUTTON_RIGHT)) {

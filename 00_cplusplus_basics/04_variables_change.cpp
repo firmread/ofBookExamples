@@ -7,5 +7,5 @@ int main(){
 	cout << counter;   // 1: has NOT changed.
 	cout << counter++; // 1: increments after evaluating
 	cout << counter;   // 2: evidence of change.
-	return 0;
+return 0;
 }

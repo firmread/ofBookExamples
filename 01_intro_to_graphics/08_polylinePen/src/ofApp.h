@@ -11,11 +11,11 @@ class ofApp : public ofBaseApp{
 		void draw();
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
-    
-        bool leftMouseButtonPressed;
-        float minDistance;
+
+		bool leftMouseButtonPressed;
+		float minDistance;
 		ofVec2f lastPoint;
-        ofPolyline currentPolyline;
-        vector <ofPolyline> polylines;
+		ofPolyline currentPolyline;
+		vector <ofPolyline> polylines;
 
 };
