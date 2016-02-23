@@ -3,11 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     phase = 0;
-    
-    ofSoundStreamSettings s;
-    s.setOutListener(this);
-    s.numOutputChannels = 2;
-    ofSoundStreamSetup(s);
+    ofSoundStreamSetup(2, 0);
 }
 
 //--------------------------------------------------------------

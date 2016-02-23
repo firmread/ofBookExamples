@@ -6,6 +6,7 @@ void ofApp::setup(){
 	sender.setup(HOST, PORT);
     imgAsBuffer = ofBufferFromFile("of-logo.png", true);
     ofSetWindowTitle("osc sender");
+    
 }
 
 //--------------------------------------------------------------

@@ -4,11 +4,8 @@ void ofApp::setup(){
     
     phase = 0;
     updateWaveform(32);
-
-    ofSoundStreamSettings s;
-    s.setOutListener(this);
-    s.numOutputChannels = 1; // mono output
-    ofSoundStreamSetup(s);
+    
+    ofSoundStreamSetup(1, 0); // mono output
 }
 
 //--------------------------------------------------------------

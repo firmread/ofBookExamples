@@ -4,6 +4,7 @@
 void ofApp::setup(){
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
+    ofEnableAntiAliasing();
 
     //create the socket and bind to port 11999
 	udpConnection.Create();

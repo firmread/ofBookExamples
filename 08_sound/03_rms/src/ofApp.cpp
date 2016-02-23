@@ -8,11 +8,7 @@ void ofApp::setup(){
     smoothedVol =0;
     bufferSize = 256;
 
-    ofSoundStreamSettings settings;
-    settings.setInListener(this);
-    settings.numInputChannels = 2;
-    settings.bufferSize = bufferSize;
-    ofSoundStreamSetup(settings);
+    ofSoundStreamSetup(0, 2, 44100, bufferSize, 4);
     
 }
 
