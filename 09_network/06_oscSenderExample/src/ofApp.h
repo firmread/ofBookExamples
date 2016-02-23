@@ -16,13 +16,12 @@ class ofApp : public ofBaseApp {
 		void draw();
 
 		void keyPressed(int key);
-		void mouseMoved(int x, int y);
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
     
 		ofTrueTypeFont font;
 		ofxOscSender sender;
         ofBuffer imgAsBuffer;
-        ofImage img; 
+        ofImage img;
 };
 
