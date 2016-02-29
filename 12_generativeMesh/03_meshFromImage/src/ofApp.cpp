@@ -2,13 +2,15 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	bool succ = true;
-	succ = image.load("stars.png");
-	if (!succ) {
+	// Do a little extra error checking to see if the image was
+	// loaded properly.  This is not in the chapter text.
+	bool wasImageLoaded = image.load("stars.png");
+	if (!wasImageLoaded) {
 		cerr << "loading image failed ...\n";
 	}
-	image.resize(200, 200);
-	mesh.setMode(OF_PRIMITIVE_LINES);
+	
+	mesh.setMode(OF_PRIMITIVE_POINTS);
+	mesh.enableColors();
 	
 	float intensityThreshold = 150.0;
 	int w = image.getWidth();
@@ -18,25 +20,11 @@ void ofApp::setup(){
 			ofColor c = image.getColor(x, y);
 			float intensity = c.getLightness();
 			if (intensity >= intensityThreshold) {
-				// We shrunk our image by a factor of 4, so we need to multiply our pixel
-				// locations by 4 in order to have our mesh cover the openFrameworks window
-				ofVec3f pos(x*4, y*4, 0.0);
+				ofVec3f pos(x, y, 0.0);
 				mesh.addVertex(pos);
+				// When addColor(...), the mesh will automatically convert
+				// the ofColor to an ofFloatColor
 				mesh.addColor(c);
-			}
-		}
-	}
-	
-	float connectionDistance = 30;
-	int numVerts = mesh.getNumVertices();
-	for (int a=0; a<numVerts; ++a) {
-		ofVec3f verta = mesh.getVertex(a);
-		for (int b=a+1; b<numVerts; ++b) {
-			ofVec3f vertb = mesh.getVertex(b);
-			float distance = verta.distance(vertb);
-			if (distance <= connectionDistance) {
-				mesh.addIndex(a);
-				mesh.addIndex(b);
 			}
 		}
 	}
@@ -44,7 +32,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	
+
 }
 
 //--------------------------------------------------------------
