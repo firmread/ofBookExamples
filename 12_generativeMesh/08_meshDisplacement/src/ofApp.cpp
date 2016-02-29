@@ -2,31 +2,38 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	
+
 	ofSetFrameRate(60);
-	
-	bool succ = true;
-	succ = image.load("stars.png");
-	if (!succ) {
+
+	// Do a little extra error checking to see if the image was
+	// loaded properly.  This is not in the chapter text.
+	bool wasImageLoaded = image.load("stars.png");
+	if (!wasImageLoaded) {
 		cerr << "loading image failed ...\n";
 	}
 	image.resize(200, 200);
+
 	mesh.setMode(OF_PRIMITIVE_LINES);
-	
+	mesh.enableColors();
+	mesh.enableIndices();
+
 	float intensityThreshold = 150.0;
 	int w = image.getWidth();
 	int h = image.getHeight();
-	for (int x=0; x<w; ++x) {
-		for (int y=0; y<h; ++y) {
+	for (int x = 0; x<w; ++x) {
+		for (int y = 0; y<h; ++y) {
 			ofColor c = image.getColor(x, y);
 			float intensity = c.getLightness();
-			// z-coordinate shift depends on point's saturation
 			if (intensity >= intensityThreshold) {
 				float saturation = c.getSaturation();
+				// Z-coordinate shift depends on the pixel's color saturation
 				float z = ofMap(saturation, 0, 255, -100, 100);
-				ofVec3f pos(x*4, y*4, z);
+				ofVec3f pos(x * 4, y * 4, z);
 				mesh.addVertex(pos);
 				mesh.addColor(c);
+				// Create "offsets" that will allow us to move the x, y and z 
+				// coordinates of each vertex independently using noise
+				offsets.push_back(ofVec3f(ofRandom(0, 100000), ofRandom(0, 100000), ofRandom(0, 100000)));
 			}
 		}
 	}
@@ -39,47 +46,32 @@ void ofApp::setup(){
 			ofVec3f vertb = mesh.getVertex(b);
 			float distance = verta.distance(vertb);
 			if (distance <= connectionDistance) {
+				// In OF_PRIMITIVE_LINES, every pair of vertices or indices will be 
+				// connected to form a line
 				mesh.addIndex(a);
 				mesh.addIndex(b);
 			}
 		}
-	}
+	}	
 	
-	
-	
-	for (int x=0; x<w; ++x) {
-		for (int y=0; y<h; ++y) {
-			ofColor c = image.getColor(x, y);
-			float intensity = c.getLightness();
-			if (intensity >= intensityThreshold) {
-				float saturation = c.getSaturation();
-				float z = ofMap(saturation, 0, 255, -100, 100);
-				ofVec3f pos(x*4, y*4, z);
-				mesh.addVertex(pos);
-				mesh.addColor(c);
-				
-				// And add this line:
-				// It will create a ofVec3f with 3 random values
-				// These will allow us to move the x, y and z coordinates of each vertex independently
-				offsets.push_back(ofVec3f(ofRandom(0,100000), ofRandom(0,100000), ofRandom(0,100000)));
-			}
-		}
-	}
-	
-	
+	// We need the "center" of our mesh - this is what we rotate around
 	meshCentroid = mesh.getCentroid();
-	for (int i=0; i<numVerts; ++i) {
+	// Now that we know our centroid, we need to know the polar coordinates (distance and angle)
+	// of each vertex relative to that center point.
+	for (int i = 0; i<numVerts; ++i) {
 		ofVec3f vert = mesh.getVertex(i);
 		float distance = vert.distance(meshCentroid);
-		float angle = atan2(vert.y-meshCentroid.y, vert.x-meshCentroid.x);
+		float angle = atan2(vert.y - meshCentroid.y, vert.x - meshCentroid.x);
 		distances.push_back(distance);
 		angles.push_back(angle);
 	}
-	
 	// These variables will allow us to toggle orbiting on and off
 	orbiting = false;
 	startOrbitTime = 0.0;
-	meshCopy = mesh;		// Store a copy of the mesh, so that we can reload the original state
+	meshCopy = mesh; // Store a copy of the mesh, so that we can reload the original state
+
+	// Flag for turning on/off our magnifying effect, starting with it off
+	mouseDisplacement = false;
 }
 
 //--------------------------------------------------------------
@@ -131,6 +123,35 @@ void ofApp::update(){
 			mesh.setVertex(i, vert);
 		}
 	}
+	
+	if (mouseDisplacement) {
+		// Get the mouse location - it must be relative to the center of our screen 
+		// because of the ofTranslate() command in draw()
+		ofVec3f mouse(mouseX, ofGetWidth()-mouseY, 0);
+
+		// Loop through all the vertices in the mesh and move them away from the
+		// mouse
+		for (int i=0; i<mesh.getNumVertices(); ++i) {
+			ofVec3f vertex = meshCopy.getVertex(i);
+			float distanceToMouse = mouse.distance(vertex);
+			
+			// Scale the displacement based on the distance to the mouse
+			// A small distance to mouse should yield a small displacement
+			float displacement = ofMap(distanceToMouse, 0, 400, 300.0, 0, true);
+			
+			// Calculate the direction from the mouse to the current vertex
+			ofVec3f direction = vertex - mouse;
+			
+			// Normalize the direction so that it has a length of one
+			// This lets us easily change the length of the vector later
+			direction.normalize();
+			
+			// Push the vertex in the direction away from the mouse and push it
+			// a distance equal to the value of the variable displacement
+			ofVec3f displacedVertex = vertex + displacement*direction;
+			mesh.setVertex(i, displacedVertex);
+		}
+	}
 }
 
 //--------------------------------------------------------------
@@ -150,8 +171,12 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if (key == 'o') {
-		orbiting = !orbiting; 			// This inverts the boolean
+		orbiting = !orbiting; // This inverts the boolean
 		startOrbitTime = ofGetElapsedTimef();
-		mesh = meshCopy;			// This restores the mesh to its original values
+		mesh = meshCopy; // This restores the mesh to its original values
+	}
+	if (key == 'm') {
+		mouseDisplacement = !mouseDisplacement; // Inverts the boolean
+		mesh = meshCopy; // Restore the original mesh
 	}
 }
